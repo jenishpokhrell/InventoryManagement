@@ -12,38 +12,37 @@
 
 <form method="post">
     <div class=" mt-3">
-        <label class="form-label mt-3">Product</label>
-        <input type="text" class="form-control" placeholder="Enter Product Name" asp-for="ProductName"/>
+        <label class="form-label">Product</label>
+        <input type="text" class="form-control" asp-for="ProductName"/>
     </div>
 
     <div class=" mt-3">
-        <label class="form-label mt-3">Description</label>
-        <input type="text" class="form-control" placeholder="Enter Product Name" asp-for="Description" />
+        <label class="form-label">Description</label>
+        <input type="text" class="form-control" asp-for="Description" />
     </div>
 
-    <div class=" mt-3">
-        <label class="form-label mt-3">Location</label>
-        @* <input list="locations" class="form-control" placeholder="Choose a location " asp-for="Location"/>
+    <div class="mt-3">
+        <label class="form-label">Location</label>
+        <input list="locations" class="form-control" asp-for="Location"/>
         <datalist id="locations">
-            <option value="Warehouse A" selected></option>
+            <option value="Warehouse A"></option>
             <option value="Warehouse B"></option>
             <option value="Warehouse C"></option>
-        </datalist> *@
-        <input type="type" class="form-control" placeholder="Enter location"/>
+        </datalist>
     </div>
 
     <div class=" mt-3">
-        <label class="form-label mt-3">Quantity</label>
-        <input type="text" class="form-control" placeholder="Enter Quantity" asp-for="Quantity" />
+        <label class="form-label">Quantity</label>
+        <input type="text" class="form-control" asp-for="Quantity" />
     </div>
 
     <div class=" mt-3">
-        <label class="form-label mt-3">Price (per qty)</label>
-        <input type="text" class="form-control" placeholder="Enter Price (Per Qty)" asp-for="Price"/>
+        <label class="form-label">Price (per qty)</label>
+        <input type="text" class="form-control" asp-for="Price"/>
     </div>
 
     <div class=" mt-3">
-        <button type="submit" class="btn btn-primary mt-4 px-5 py-2">Add</button>
-    </div>
-    
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>  
+
 </form>
