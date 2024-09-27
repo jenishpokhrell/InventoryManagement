@@ -41,5 +41,12 @@ namespace InventoryManagementSystem.Controllers
             var students = await dbContext.Products.ToListAsync();
             return View(students);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> EditProduct(Guid id)
+        {
+            var student = await dbContext.Products.FindAsync(id);
+            return View(student);
+        }
     }
 }

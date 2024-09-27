@@ -11,6 +11,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Id</th>
             <th>Product Name</th>
             <th>Description</th>
             <th>Location</th>
@@ -23,6 +24,7 @@
         @foreach (var product in Model)
         {
             <tr>
+                <td>@product.Id</td>
                 <td>@product.ProductName</td>
                 <td>@product.Description</td>
                 <td>@product.Location</td>
