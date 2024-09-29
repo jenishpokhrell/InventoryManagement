@@ -10,6 +10,13 @@
     Edit Product
 </h1>
 
+
+@if(Model is null)
+{
+    <p>No Products Found</p>
+}
+else
+{   
 <form method="post">
     <div class=" mt-3">
         <label class="form-label">Product</label>
@@ -42,7 +49,8 @@
     </div>
 
     <div class=" mt-3">
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="submit" class="btn btn-primary">Update</button>
     </div>
 
 </form>
+}

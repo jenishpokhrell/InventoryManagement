@@ -13,7 +13,7 @@
 <form method="post">
     <div class=" mt-3">
         <label class="form-label">Product</label>
-        <input type="text" class="form-control" asp-for="ProductName"/>
+        <input type="text" class="form-control" asp-for="ProductName" />
     </div>
 
     <div class=" mt-3">
@@ -23,7 +23,7 @@
 
     <div class="mt-3">
         <label class="form-label">Location</label>
-        <input list="locations" class="form-control" asp-for="Location"/>
+        <input list="locations" class="form-control" asp-for="Location" />
         <datalist id="locations">
             <option value="Warehouse A"></option>
             <option value="Warehouse B"></option>
@@ -38,11 +38,11 @@
 
     <div class=" mt-3">
         <label class="form-label">Price (per qty)</label>
-        <input type="text" class="form-control" asp-for="Price"/>
+        <input type="text" class="form-control" asp-for="Price" />
     </div>
 
     <div class=" mt-3">
         <button type="submit" class="btn btn-primary">Add</button>
-    </div>  
+    </div>
 
 </form>

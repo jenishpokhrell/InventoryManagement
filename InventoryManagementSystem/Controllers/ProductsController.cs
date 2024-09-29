@@ -38,15 +38,32 @@ namespace InventoryManagementSystem.Controllers
         [HttpGet]
         public async Task<IActionResult> ProductList()
         {
-            var students = await dbContext.Products.ToListAsync();
-            return View(students);
+            var products = await dbContext.Products.ToListAsync();
+            return View(products);
         }
 
         [HttpGet]
         public async Task<IActionResult> EditProduct(Guid id)
         {
-            var student = await dbContext.Products.FindAsync(id);
-            return View(student);
+            var product = await dbContext.Products.FindAsync(id);
+            return View(product);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditProduct(Product viewModel)
+        {
+            var product = await dbContext.Products.FindAsync(viewModel.Id);
+            if(product is not null)
+            {
+                product.ProductName = viewModel.ProductName;
+                product.Description = viewModel.Description;
+                product.Location = viewModel.Location;
+                product.Quantity = viewModel.Quantity;
+                product.Price = viewModel.Price;
+
+                await dbContext.SaveChangesAsync();
+            }
+            return RedirectToAction("ProductList", "Products");
         }
     }
 }
