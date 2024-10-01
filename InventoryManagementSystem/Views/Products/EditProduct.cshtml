@@ -10,7 +10,6 @@
     Edit Product
 </h1>
 
-
 @if(Model is null)
 {
     <p>No Products Found</p>
@@ -50,6 +49,7 @@ else
 
     <div class=" mt-3">
         <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-danger" asp-action="DeleteProduct" asp-controller="Products">Delete</button>
     </div>
 
 </form>

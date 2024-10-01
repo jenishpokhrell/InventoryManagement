@@ -65,5 +65,17 @@ namespace InventoryManagementSystem.Controllers
             }
             return RedirectToAction("ProductList", "Products");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteProduct(Product viewModel)
+        {
+            var product = await dbContext.Products.AsNoTracking().FirstOrDefaultAsync(x => x.Id == viewModel.Id);
+            if(product is not null)
+            {
+                dbContext.Products.Remove(viewModel);
+                await dbContext.SaveChangesAsync(true);
+            }
+            return RedirectToAction("ProductList", "Products");
+        }
     }
 }

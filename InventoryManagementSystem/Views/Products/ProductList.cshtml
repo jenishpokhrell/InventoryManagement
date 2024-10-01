@@ -28,10 +28,10 @@
                 <td>@product.ProductName</td>
                 <td>@product.Description</td>
                 <td>@product.Location</td>
-                <td>@product.Quantity</td>
+                <td>@product.Quantity</td> 
                 <td>@product.Price</td>
                 <td>
-                    <a>Edit</a>
+                    <a class="btn btn-primary" asp-controller="Products" asp-action="EditProduct" asp-route-id="@product.Id">Edit</a>
                 </td>
             </tr>
         }
