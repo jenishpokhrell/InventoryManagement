@@ -55,6 +55,7 @@ namespace InventoryManagementSystem.Controllers
             var product = await dbContext.Products.FindAsync(viewModel.Id);
             if(product is not null)
             {
+                
                 product.ProductName = viewModel.ProductName;
                 product.Description = viewModel.Description;
                 product.Location = viewModel.Location;
@@ -69,11 +70,11 @@ namespace InventoryManagementSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteProduct(Product viewModel)
         {
-            var product = await dbContext.Products.AsNoTracking().FirstOrDefaultAsync(x => x.Id == viewModel.Id);
+            var product = await dbContext.Products.FirstOrDefaultAsync(x => x.Id == viewModel.Id);
             if(product is not null)
             {
-                dbContext.Products.Remove(viewModel);
-                await dbContext.SaveChangesAsync(true);
+                dbContext.Products.Remove(product);
+                await dbContext.SaveChangesAsync();
             }
             return RedirectToAction("ProductList", "Products");
         }
