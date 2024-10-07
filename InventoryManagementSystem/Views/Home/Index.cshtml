@@ -2,6 +2,37 @@
     ViewData["Title"] = "Home Page";
 }
 
+@model List<InventoryManagementSystem.Models.Entities.Product>
+
+
 <div class="text-center mt-4">
     <h1>Stock Overview</h1>
+    <div class=" mt-5 d-flex flex-row justify-content-around align-content-center">
+        <div>
+            <h2>Total Stock</h2>
+            <p>@ViewBag.TotalStocks</p>
+        </div>
+        <div>
+            <div>
+                <h2>Low stock warnings</h2>
+                @if (ViewBag.LowStocks is not null && ViewBag.LowStocks.Any())
+                {
+                    <ul>
+                        @foreach(var product in ViewBag.LowStocks)
+                        {
+                            <li>@product.ProductName (Remaining: @product.Quantity)</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p>No Low Stocks</p>    
+                }
+            </div>
+            @* <div>
+                <h2>Left Stock</h2>
+                <p>19</p>
+            </div> *@
+        </div>
+    </div>
 </div>

@@ -13,6 +13,30 @@ namespace InventoryManagementSystem.Controllers
         {
             this.dbContext = dbContext;
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            var products = await dbContext.Products.ToListAsync();
+
+            if(!products.Any() || products == null)
+    {
+                Console.WriteLine("No products found in the database.");
+            }
+            else
+            {
+                Console.WriteLine($"Found {products.Count} products.");
+            }
+            var totalStocks = products.Sum(s => s.Quantity);
+
+            var lowStocks = products.Where(s => s.Quantity < 25).ToList();
+
+            ViewBag.TotalStocks = totalStocks;
+            ViewBag.LowStocks = lowStocks;
+
+            return View(products);
+        }
+
         [HttpGet]
         public IActionResult Add()
         {
@@ -32,7 +56,7 @@ namespace InventoryManagementSystem.Controllers
             };
             await dbContext.Products.AddAsync(product);
             await dbContext.SaveChangesAsync();
-            return View();
+            return RedirectToAction("ProductList", "Products");
         }
 
         [HttpGet]
